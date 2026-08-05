@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 6 Gift 🎁</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Comic Sans MS',cursive;
+background:linear-gradient(135deg,#ffe4d6,#fff2cc,#fff9f4);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.gift{
+font-size:110px;
+cursor:pointer;
+animation:bounce 2s infinite;
+transition:.4s;
+}
+
+.gift:hover{
+transform:scale(1.1);
+}
+
+.tap{
+margin-top:10px;
+color:#b86d3b;
+font-size:22px;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.4;}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+.card{
+width:330px;
+background:#fffdf8;
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(255,166,120,.35);
+display:none;
+animation:pop .8s;
+margin:auto;
+}
+
+@keyframes pop{
+from{
+opacity:0;
+transform:scale(.6);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+h1{
+color:#ff8a5c;
+margin-bottom:10px;
+}
+
+h2{
+color:#d78b2b;
+margin-bottom:15px;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
+color:#6a5b4d;
+}
+
+.float{
+position:absolute;
+bottom:-50px;
+font-size:24px;
+animation:rise linear infinite;
+opacity:.8;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="giftBox">
+<div class="gift" onclick="openGift()">🎁</div>
+<div class="tap">Tap the Gift 🎀</div>
+</div>
+
+<div class="card" id="messageCard">
+<h1>Day 6 ☀️</h1>
+<h2>A Little Surprise For You babuu</h2>
+
+<p>
+Happy Day 6! 🌼<br><br>
+
+If you're reading this, then you officially opened today's tiny surprise. 💛
+
+I hope today brings you unexpected smiles, peaceful moments, and at least one thing that makes your heart feel warm.
+
+Never forget that your smile has a way of making the world brighter, and you deserve every bit of happiness coming your way.
+
+Enjoy every little moment today...
+
+Have the sweetest Day 6!✨
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function openGift(){
+document.getElementById("giftBox").style.display="none";
+document.getElementById("messageCard").style.display="block";
+confetti();
+}
+
+const emojis=["🍑","🌼","✨","💛","🧡","🍂"];
+
+function confetti(){
+for(let i=0;i<70;i++){
+let e=document.createElement("div");
+e.className="float";
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+e.style.left=Math.random()*100+"vw";
+e.style.fontSize=(20+Math.random()*20)+"px";
+e.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(e);
+
+setTimeout(()=>{
+e.remove();
+},8000);
+}
+}
+
+setInterval(()=>{
+let e=document.createElement("div");
+e.className="float";
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+e.style.left=Math.random()*100+"vw";
+e.style.fontSize=(20+Math.random()*18)+"px";
+e.style.animationDuration=(5+Math.random()*4)+"s";
+document.body.appendChild(e);
+
+setTimeout(()=>{
+e.remove();
+},9000);
+
+},500);
+
+</script>
+
+</body>
+</html>
